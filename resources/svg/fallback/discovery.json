@@ -1,0 +1,10 @@
+{
+    "variants": [
+        "default"
+    ],
+    "icons": {
+        "default\/missing.svg": {
+            "url": "default\/missing.svg"
+        }
+    }
+}

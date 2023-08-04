@@ -1,6 +1,6 @@
 {
     "name": "blinq/icons",
-    "description": "This is my package icons",
+    "description": "Super simple embedding of icons sets in you Laravel application.",
     "keywords": [
         "blinq",
         "laravel",
@@ -11,7 +11,7 @@
     "authors": [
         {
             "name": "Lennard",
-            "email": "168357+lennardv2@users.noreply.github.com",
+            "email": "github@blinq.dev",
             "role": "Developer"
         }
     ],

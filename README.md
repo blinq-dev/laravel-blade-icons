@@ -23,52 +23,41 @@ Go to https://icons.blinq.dev and find the icon you want to use.
 
 ## Configuration
 
-Publish the config file using:
+Optionally, you can publish the config file using:
 
 ```bash
 php artisan vendor:publish --tag="blinq-icons:config"
 ```
 
-
 This is the contents of the published config file:
 
 ```php
 return [
+    /**
+     * Set the download path for the icons
+     */
+    'download_path' => base_path('resources/svg'),
+    /**
+     * Sets the prefix for the blade components
+     * x-icon becomes x-prefix-icon
+     */
+    'prefix' => null,
 ];
 ```
 
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="icons-views"
-```
-
-## Usage
-
-
-
-## Testing
-
-```bash
-composer test
+php artisan vendor:publish --tag="blinq-icons:views"
 ```
 
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
 ## Credits
 
-- [Lennard](https://github.com/blinq)
-- [All Contributors](../../contributors)
+- [Lennard](https://github.com/blinq-dev)
 
 ## License
 

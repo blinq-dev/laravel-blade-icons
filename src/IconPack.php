@@ -2,8 +2,10 @@
 
 namespace Blinq\Icons;
 
+use Blinq\Icons\Components\Icon;
 use Blinq\Icons\Traits\WithDiscovery;
 use Blinq\Icons\Traits\WithDownloads;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\View\ComponentAttributeBag;
 
 abstract class IconPack
@@ -14,7 +16,7 @@ abstract class IconPack
     protected static $packs =[];
     protected static $cache = [];
 
-    protected IconPackConfig $config;
+    public IconPackConfig $config;
 
     // register
     public static function register(IconPack $pack)
@@ -29,9 +31,20 @@ abstract class IconPack
         return static::$packs[$namespace] ?? null;
     }
 
+    public static function all() : array
+    {
+        return static::$packs;
+    }
+
     public function __construct()
     {
         $this->config = $this->configure(new IconPackConfig());
+        $this->config->validate();
+    }
+
+    public function getName()
+    {
+        return $this->config->name;
     }
 
     abstract public function configure(IconPackConfig $config);
@@ -84,5 +97,18 @@ abstract class IconPack
         }
 
         return $svg;
+    }
+
+    public static function svg($pack, $name)
+    {
+        $rendered = Blade::renderComponent(new Icon($pack, $name, lazy: false));
+        
+        // Remove all comments
+        $rendered = preg_replace('/<!--(.|\s)*?-->/', '', $rendered);
+    
+        // Remove all whitespace
+        $rendered = preg_replace('/\s+/', ' ', $rendered);
+
+        return $rendered;
     }
 }

@@ -10,6 +10,7 @@ class Material extends IconPack
     public function configure(IconPackConfig $config)
     {
         return $config
+            ->setName("Material Icons")
             ->setNamespace("material")
             ->setPath("https://raw.githubusercontent.com/google/material-design-icons/master/src")
             // src subdir

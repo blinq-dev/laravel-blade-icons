@@ -10,6 +10,8 @@ class Fallback extends IconPack
     public function configure(IconPackConfig $config)
     {
         return $config
+            ->setName("fallback")
+            ->setShowInBrowser(false)
             ->setNamespace("fallback")
             ->setPath(__DIR__ . "/../../resources/svg/fallback")
             ->setDiscovery(__DIR__ . "/../../resources/svg/fallback/discovery.json")

@@ -10,6 +10,7 @@ class FontAwesome extends IconPack
     public function configure(IconPackConfig $config)
     {
         return $config
+            ->setName("Font Awesome")
             ->setNamespace("fa6")
             ->setPath("https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs")
             ->setDiscovery("https://api.github.com/repos/FortAwesome/Font-Awesome/git/trees/6.x?recursive=1")

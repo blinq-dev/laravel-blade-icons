@@ -4,10 +4,18 @@ namespace Blinq\Icons;
 
 class IconPackConfig 
 {
-    public string $namespace = "fa6";
-    public string $path = "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs";
-    public string $discovery = "https://api.github.com/repos/FortAwesome/Font-Awesome/git/trees/6.x?recursive=1";
-    public string $defaultVariant = "solid";
+    public string $namespace;
+    public string $path;
+    public string $discovery;
+    public string $defaultVariant;
+
+    public string $name;
+    public string|null $site = null;
+    public string|null $description = null;
+    public string|null $license = null;
+    public string|null $copyright = null;
+    
+    public bool $showInBrowser = true;
 
     public function __construct()
     {
@@ -36,5 +44,60 @@ class IconPackConfig
     {
         $this->defaultVariant = $defaultVariant;
         return $this;
+    }
+
+    public function setName(string $name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function setSite(string $site)
+    {
+        $this->site = $site;
+        return $this;
+    }
+
+    public function setCopyRight(string $copyright)
+    {
+        $this->copyright = $copyright;
+        return $this;
+    }
+
+    public function setShowInBrowser(bool $showInBrowser = true)
+    {
+        $this->showInBrowser = $showInBrowser;
+        return $this;
+    }
+
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    public function setLicense(string $license)
+    {
+        $this->license = $license;
+        return $this;
+    }
+
+    public function validate()
+    {
+        if (empty($this->name)) {
+            throw new \Exception("Name is required");
+        }
+        if (empty($this->namespace)) {
+            throw new \Exception("Namespace is required");
+        }
+        if (empty($this->path)) {
+            throw new \Exception("Path is required");
+        }
+        if (empty($this->discovery)) {
+            throw new \Exception("Discovery is required");
+        }
+        if (empty($this->defaultVariant)) {
+            throw new \Exception("Default variant is required");
+        }
     }
 }

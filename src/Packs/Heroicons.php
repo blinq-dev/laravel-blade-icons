@@ -10,6 +10,7 @@ class Heroicons extends IconPack
     public function configure(IconPackConfig $config)
     {
         return $config
+            ->setName("Heroicons")
             ->setNamespace("hero2")
             ->setPath("https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src")
             ->setDiscovery("https://api.github.com/repos/tailwindlabs/heroicons/git/trees/master?recursive=1")

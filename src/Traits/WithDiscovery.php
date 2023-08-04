@@ -9,11 +9,22 @@ use Blinq\Icons\IconPackConfig;
  */
 trait WithDiscovery
 {
+    static $discoveryCache = [];
+
     public function getDiscoveryList()
     {
+        $cacheKey = $this->config->namespace . ".discovery";
+        if (isset(static::$discoveryCache[$cacheKey])) {
+            return static::$discoveryCache[$cacheKey];
+        }
+
         $file = $this->getOrDownloadDiscovery();
 
-        return json_decode($file, true);
+        $decoded = json_decode($file, true);
+
+        static::$discoveryCache[$cacheKey] = $decoded;
+
+        return $decoded;
     }
 
     public function discover($name, $variant)
@@ -21,6 +32,27 @@ trait WithDiscovery
         $list = $this->getDiscoveryList();
 
         return $list['icons']["$variant/$name.svg"]['url'] ?? null;
+    }
+
+    public function list()
+    {
+        $cacheKey = $this->config->namespace . ".list";
+
+        if (isset(static::$discoveryCache[$cacheKey])) {
+            return static::$discoveryCache[$cacheKey];
+        }
+
+        $list = $this->getDiscoveryList();
+
+        $items = collect($list['icons'])
+            ->map(fn($x, $key) => (object) [
+                'name' => (string) str($key)->afterLast('/')->beforeLast('.'),
+                'variant' => (string) str($key)->before('/'),
+            ]);
+        
+        static::$discoveryCache[$cacheKey] = $items;
+
+        return $items;
     }
 
     public function getOrDownloadDiscovery()

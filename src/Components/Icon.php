@@ -22,6 +22,6 @@ class Icon extends Component
      */
     public function render()
     {
-        return view("blinq.icons::components.icon");
+        return view("blinq-icons::components.icon");
     }
 }

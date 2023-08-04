@@ -22,7 +22,7 @@ class IconsServiceProvider extends PackageServiceProvider
         $this->registerRoutes();
         $this->registerCommands();
         $this->registerBladeComponents();
-        // $this->registerViewComponentDirectory("../resources/views/components", config('blinq.icons.prefix', null), "blinq");
+        // $this->registerViewComponentDirectory("../resources/views/components", config('blinq-icons.prefix', null), "blinq");
     }
 
     public function boot()
@@ -59,9 +59,9 @@ class IconsServiceProvider extends PackageServiceProvider
 
     protected function registerConfig()
     {
-        $config = __DIR__.'/../config/blinq.icons.php';
+        $config = __DIR__.'/../config/blinq-icons.php';
 
-        $this->publishes([$config => base_path('config/blinq.icons.php')], ['blinq', 'blinq:config']);
+        $this->publishes([$config => base_path('config/blinq-icons.php')], ['blinq', 'blinq-icons:config']);
 
         $this->mergeConfigFrom($config, 'blinq');
     }
@@ -69,9 +69,9 @@ class IconsServiceProvider extends PackageServiceProvider
     protected function registerViews() {
         $views = __DIR__.'/../resources/views';
 
-        $this->publishes([ $views => base_path("resources/views/vendor/blinq.icons")], ['blinq', 'blinq:views']);
+        $this->publishes([ $views => base_path("resources/views/vendor/blinq-icons")], ['blinq', 'blinq-icons:views']);
 
-        $this->loadViewsFrom($views, 'blinq.icons');
+        $this->loadViewsFrom($views, 'blinq-icons');
     }
 
     protected function bootAutoInjection()

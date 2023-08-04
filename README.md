@@ -23,10 +23,10 @@ Go to https://icons.blinq.dev and find the icon you want to use.
 
 ## Configuration
 
-Publs the config file using
+Publish the config file using:
 
 ```bash
-php artisan vendor:publish --tag="icons-config"
+php artisan vendor:publish --tag="blinq-icons:config"
 ```
 
 

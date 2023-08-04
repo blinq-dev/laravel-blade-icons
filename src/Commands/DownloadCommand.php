@@ -11,7 +11,7 @@ use Illuminate\Console\Command;
  */
 class DownloadCommand extends Command
 {
-    public $signature = 'blinq.icons:download';
+    public $signature = 'blinq-icons:download';
 
     public $description = 'Download all the icons in the all the available sets';
 

@@ -68,8 +68,6 @@ Would you like to add another icon pack? Let's use Heroicons as an example.
 
 You can find the "academic-cap" icon here:
 
-You can find the "academic-cap" icon here:
-
 https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/24/outline/academic-cap.svg
 
 Thus, the download base path is:

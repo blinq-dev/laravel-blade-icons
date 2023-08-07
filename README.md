@@ -78,7 +78,7 @@ If you want to obtain a list of all files available in this GitHub repository, y
 
 https://api.github.com/repos/tailwindlabs/heroicons/git/trees/master?recursive=1
 
-e must then transform this list into a format that ``blinq/icons`` understands. This transformation is described in a ``discovery.json`` file, which is created automatically.
+We must then transform this list into a format that ``blinq/icons`` understands. This transformation is described in a ``discovery.json`` file, which is created automatically.
 
 ```json
 {

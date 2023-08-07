@@ -32,7 +32,7 @@ Go to https://icons.blinq.dev and find the icon that tickles your fancy.
 <x-icon pack='material/twotone' name='account_circle' class='w-6 h-6' />
 ```
 
-That's it! First time around, it'll download the icon to your resources folder, and from then on, it'll load from there. Pretty slick, eh?
+That's it! First time around, it'll download the icon to your resources folder, and from then on, it'll load from there.
 
 ## Configuration
 

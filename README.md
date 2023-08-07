@@ -1,6 +1,6 @@
 # Laravel blade icons
 
-This package makes it super simple to embed svg icons in your laravel project. No need to download entire icon sets that will bloat your code. It's smart, so it only grabs the icons you want and caches them locally 🚀
+This package makes it super simple to embed svg icons in your laravel project. No need to download entire icon sets that will bloat your code. It only grabs the icons you want and caches them locally 🚀
 
 Available at the time or writing:
 - Heroicons (mini / outline / solid)
@@ -19,10 +19,8 @@ Simply conjure up the following in your terminal:
 composer require blinq/icons
 ```
 
-And voila! You're in the icon club.
-
 ## Usage
-Go to https://icons.blinq.dev and find the icon that tickles your fancy.
+Go to https://icons.blinq.dev and find the icon you want.
 
 ```php
 <x-icon pack='hero2/outline' name='banknotes' class='w-6 h-6' />

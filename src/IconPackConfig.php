@@ -14,6 +14,8 @@ class IconPackConfig
     public string|null $description = null;
     public string|null $license = null;
     public string|null $copyright = null;
+
+    public array $extra = [];
     
     public bool $showInBrowser = true;
 
@@ -74,6 +76,25 @@ class IconPackConfig
     {
         $this->description = $description;
         return $this;
+    }
+
+    public function setStrokeBased(bool $boolean, string $variant = null)
+    {
+        if (empty($variant)) {
+            $variant = "__all__";
+        }
+
+        if (!isset($this->extra[$variant])) {
+            $this->extra[$variant] = [];
+        }
+        $this->extra[$variant]['strokeBased'] = $boolean;
+        return $this;
+    }
+  
+
+    public function setS()
+    {
+        
     }
 
     public function setLicense(string $license)

@@ -3,11 +3,16 @@
 namespace Blinq\Icons;
 
 use Blinq\Icons\Packs\Fallback;
+
+use Blinq\Icons\PackageServiceProvider;
+use Blinq\Icons\Components\Icon;
+use Blinq\Icons\Packs\Akar;
+use Blinq\Icons\Packs\Bootstrap;
+use Blinq\Icons\Packs\FluentUI;
 use Blinq\Icons\Packs\FontAwesome;
 use Blinq\Icons\Packs\Heroicons;
 use Blinq\Icons\Packs\Material;
-use Blinq\Icons\PackageServiceProvider;
-use Blinq\Icons\Components\Icon;
+use Blinq\Icons\Packs\SimpleIcons;
 use Illuminate\Foundation\Http\Events\RequestHandled;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -16,7 +21,6 @@ class IconsServiceProvider extends PackageServiceProvider
 {
     public function register(): void
     {
-        $this->registerIconPacks();
         $this->registerConfig();
         $this->registerViews();
         $this->registerRoutes();
@@ -24,18 +28,24 @@ class IconsServiceProvider extends PackageServiceProvider
         $this->registerBladeComponents();
         // $this->registerViewComponentDirectory("../resources/views/components", config('blinq-icons.prefix', null), "blinq");
     }
-
+    
     public function boot()
     {
         $this->bootAutoInjection();
+        $this->registerIconPacks();
     }
 
     public function registerIconPacks()
     {
+        
         IconPack::register(new Fallback());
+        IconPack::register(new SimpleIcons());
         IconPack::register(new Heroicons());
+        IconPack::register(new FluentUI());
         IconPack::register(new FontAwesome());
+        IconPack::register(new Akar());
         IconPack::register(new Material());
+        IconPack::register(new Bootstrap());
     }
 
     public function registerBladeComponents()

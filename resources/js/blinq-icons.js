@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const MAX_REQUESTS = 180;
+    const CACHE_ENABLED = true;
     let observer;
     const svgCache = JSON.parse(localStorage.getItem('svgCache') || '{}');
 
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const batch = svgsInView.slice(i, i + MAX_REQUESTS);
             var svgData = batch.map(function(svg) {
                 const cachedData = svgCache[btoa(svg.getAttribute('data-lazy'))];
-                if (cachedData) {
+                if (CACHE_ENABLED && cachedData) {
                     setSvgContent(svg, cachedData);
                     return null; // No need to fetch from server if already cached
                 }
@@ -26,14 +27,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 .then(function(data) {
                     batch.forEach(function(svg, index) {
                         const svgData = btoa(svg.getAttribute('data-lazy'));
+
+                        // Set the content
+                        setSvgContent(svg, data[index]);
+
+                        if (!CACHE_ENABLED) return; // Skip if caching is disabled
                         if (svgCache[svgData]) return; // Skip if already cached
 
                         // Cache the newly fetched data
                         svgCache[svgData] = data[index];
                         localStorage.setItem('svgCache', JSON.stringify(svgCache));
-
-                        // Set the content
-                        setSvgContent(svg, data[index]);
                     });
                 });
         }

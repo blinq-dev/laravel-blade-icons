@@ -17,7 +17,7 @@ Simply conjure up the following in your terminal:
 
 ```bash
 composer require blinq/icons
-```
+````
 
 ## Usage
 Go to https://icons.blinq.dev and find the icon you want.

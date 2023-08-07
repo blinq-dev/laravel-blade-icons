@@ -23,6 +23,7 @@ class Heroicons extends IconPack
             ->setLicense("MIT")
             ->setDescription("Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.")
             ->setCopyright("By the makers of tailwindcss.com")
+            ->setStrokeBased(true, "outline")
             ->setSite("https://heroicons.com")
             /**
              * The namespace is used to select this icon pack

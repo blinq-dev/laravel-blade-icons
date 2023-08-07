@@ -49,11 +49,6 @@ class Material extends IconPack
 
     public function beforeSvgFileCreated(&$localFile, $contents)
     {
-        // Replace ALL occurences of width="??" with nothing
-        $contents = preg_replace('/ width="[^"]*"/', '', $contents);
-        // Replace ALL occurences of height="??" with nothing
-        $contents = preg_replace('/ height="[^"]*"/', '', $contents);
-
         $contents = preg_replace('/<svg/', '<svg fill="currentColor"', $contents);
 
         // Write

@@ -23,7 +23,12 @@ trait WithDownloads
             // $remoteVariant = $this->variants[$variant];
             $url = "$path/$remoteFile";
 
-            $svg = file_get_contents($url);
+            try {
+                $url = str_replace(" ", "%20", $url);
+                $svg = file_get_contents($url);
+            } catch (\Exception $e) {
+
+            }
 
             $this->createSvgFile($local, $svg);
         }
@@ -37,7 +42,11 @@ trait WithDownloads
 
         $dir = dirname($localFile);
         if (!file_exists($dir)) {
-            mkdir($dir, recursive: true);
+            try {
+                mkdir($dir, recursive: true);
+            } catch (\Exception $e) {
+
+            }
         }
         file_put_contents($localFile, $contents);
 

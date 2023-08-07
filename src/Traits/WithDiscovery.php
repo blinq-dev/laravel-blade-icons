@@ -48,6 +48,7 @@ trait WithDiscovery
             ->map(fn($x, $key) => (object) [
                 'name' => (string) str($key)->afterLast('/')->beforeLast('.'),
                 'variant' => (string) str($key)->before('/'),
+                'url' => $x['url'],
             ]);
         
         static::$discoveryCache[$cacheKey] = $items;

@@ -64,23 +64,23 @@ php artisan vendor:publish --tag="blinq-icons:views"
 
 ## Contributing
 
-Do you want to add another icon pack?
+Would you like to add another icon pack? Let's use Heroicons as an example.
 
-Let's pick heroicons as an example.
+You can find the "academic-cap" icon here:
 
-The academic-cap icon is found here: 
+You can find the "academic-cap" icon here:
 
 https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/24/outline/academic-cap.svg
 
-So the download base path is:
+Thus, the download base path is:
 
 https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src
 
-If we want a list of all files available on this github repo, we can use this url:
+If you want to obtain a list of all files available in this GitHub repository, you can use the following URL:
 
 https://api.github.com/repos/tailwindlabs/heroicons/git/trees/master?recursive=1
 
-We need to transform this list into a format that blinq/icons understands. This is described in a discovery.json that is created automatically:
+e must then transform this list into a format that ``blinq/icons`` understands. This transformation is described in a ``discovery.json`` file, which is created automatically.
 
 ```json
 {
@@ -99,14 +99,14 @@ We need to transform this list into a format that blinq/icons understands. This 
         ...
 ```
 
-To get here we need to write some code to transform the github trees response into a discovery.json. Check out the ``beforeDiscoveryFileCreated`` method below.
+To achieve this, we need to write some code that will transform the GitHub trees response into a discovery.json file. Take a look at the beforeDiscoveryFileCreated method below.
 
-Also in this case we need to change the svg contents to play nice with the classes we apply to them, See the ``beforeSvgFileCreated`` method.
-- Remove all specified width / height as this should be configurable by the user of the icon
-- For similar reasons remove all specified colors
-- Set the fill or stroke to ``currentColor`` to let the user specify it
+In this case, we also need to make adjustments to the SVG contents so they work well with the classes we apply to them. You can find guidance in the beforeSvgFileCreated method:
+- Remove all specified width and height, as these should be configurable by the user of the icon.
+- Similarly, remove all specified colors.
+- Set the fill or stroke to currentColor, allowing the user to specify it.
 
-These operations can be specified in a single class that extends IconPack:
+These operations can be consolidated into a single class that extends IconPack:
 
 ```php
 <?php

@@ -58,7 +58,7 @@ class IconPackConfig
         return $this;
     }
 
-    public function setCopyRight(string $copyright)
+    public function setCopyright(string $copyright)
     {
         $this->copyright = $copyright;
         return $this;

@@ -5,15 +5,34 @@ namespace Blinq\Icons\Packs;
 use Blinq\Icons\IconPack;
 use Blinq\Icons\IconPackConfig;
 
+/**
+ * Heroicons icon pack
+ * 
+ * <x-icon pack="namespace/variant" name="icon name" />
+ * <x-icon pack="hero2/solid" name="banknotes" />
+ */
 class Heroicons extends IconPack
 {
     public function configure(IconPackConfig $config)
     {
         return $config
+            /**
+             * Some info the be showed at https://icons.blinq.dev
+             */
             ->setName("Heroicons")
+            ->setLicense("MIT")
+            ->setDescription("Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.")
+            ->setCopyright("By the makers of tailwindcss.com")
+            ->setSite("https://heroicons.com")
+            /**
+             * The namespace is used to select this icon pack
+             */
             ->setNamespace("hero2")
             ->setPath("https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src")
             ->setDiscovery("https://api.github.com/repos/tailwindlabs/heroicons/git/trees/master?recursive=1")
+            /**
+             * The default variant is used when no variant is specified
+             */
             ->setDefaultVariant("solid");
     }
 
@@ -23,21 +42,38 @@ class Heroicons extends IconPack
         '20/solid' => "mini",
     ];
 
-    public function beforeDiscoveryFileCreated($contents)
+    /**
+     * Parses the github trees url and converts it into a discovery
+     *
+     * @param string $discoveryResponse
+     * @return void
+     */
+    public function beforeDiscoveryFileCreated($discoveryResponse)
     {
-        $result = json_decode($contents, true);
+        // Turn string into array
+        $result = json_decode($discoveryResponse, true);
+
+        // Get the tree
         $tree = $result['tree'] ?? null;
 
-        // Only keep the list of files
+        // Filter the tree:
         $icons = collect($tree)
+            // should start with src and end with .svg
             ->filter(fn($x) => str($x['path'])->startsWith('src') && str($x['path'])->endsWith('.svg'))
+            // the url part of the discovery file. E.g: 20/solid/academic-cap.svg
             ->map(fn($x) => [ "url" => str($x['path'])->replaceFirst("src/", "")])
+            // key by the variant and the icon.png. E.g: mini/academic-cap.svg
             ->keyBy(fn($x) => 
                 ($this->variantMapping[(string) str($x['url'])->beforeLast('/')] ?? 'other') . "/" . str($x['url'])->afterLast('/')
             );
 
-        $variants = $icons->map(fn($x) => str($x['url'])->before('/'))->unique()->values();
+        // Create a unique list of variants
+        $variants = $icons
+            ->map(fn($x) =>  $this->variantMapping[(string) str($x['url'])->beforeLast('/')] ?? 'other')
+            ->unique()
+            ->values();
 
+        // Combine them
         return [
             "variants" => $variants,
             "icons" => $icons,

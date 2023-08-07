@@ -1,8 +1,6 @@
 # Laravel blade icons
 
-Hey there, friend! Are you tired of hunting down the perfect SVG icons for your web project and embedding them in your code? Well, look no further! I've got a package right here that'll make your life a breeze. Say hello to Laravel Blade Icons. 👋
-
-No need to download entire icon sets that will bloat your code. It's smart, so it only grabs the icons you want and caches them locally. Talk about efficiency! 🚀
+No need to download entire icon sets that will bloat your code. It's smart, so it only grabs the icons you want and caches them locally 🚀
 
 Available at the time or writing:
 - Heroicons (mini / outline / solid)

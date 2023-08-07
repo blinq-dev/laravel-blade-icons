@@ -96,7 +96,7 @@ We need to transform this list into a format that blinq/icons understands. This 
         "mini\/adjustments-horizontal.svg": {
             "url": "20\/solid\/adjustments-horizontal.svg"
         },
-        ...etc
+        ...
 ```
 
 To get here we need to write some code to transform the github trees response into a discovery.json. Check out the ``beforeDiscoveryFileCreated`` method below.

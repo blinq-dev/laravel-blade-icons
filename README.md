@@ -21,6 +21,8 @@ Go to https://icons.blinq.dev and find the icon you want to use.
 <x-icon pack='material/twotone' name='account_circle' class='w-6 h-6' />
 ```
 
+That's it! The first time it downloads the icon to your resources folder and after that it loads from there.
+
 ## Configuration
 
 Optionally, you can publish the config file using:

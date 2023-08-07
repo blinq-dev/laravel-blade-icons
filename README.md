@@ -69,12 +69,15 @@ Do you want to add another icon pack?
 Let's pick heroicons as an example.
 
 The academic-cap icon is found here: 
+
 https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/24/outline/academic-cap.svg
 
 So the download base path is:
+
 https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src
 
 If we want a list of all files available on this github repo, we can use this url:
+
 https://api.github.com/repos/tailwindlabs/heroicons/git/trees/master?recursive=1
 
 We need to transform this list into a format that blinq/icons understands. This is described in a discovery.json that is created automatically:
@@ -96,12 +99,12 @@ We need to transform this list into a format that blinq/icons understands. This 
         ...etc
 ```
 
-To get here we need to write some code to transform the github trees response into a discovery.json (see beforeDiscoveryFileCreated)
+To get here we need to write some code to transform the github trees response into a discovery.json. Check out the ``beforeDiscoveryFileCreated`` method below.
 
-Also in this case we need to change the svg contents to play nice with the classes we apply to them: (see beforeSvgFileCreated)
-- Remove all specified width / height, this should be settable by the user of the icon (with w-6 h-6 classes for example)
-- Remove all specified colors, for similar reasons
-- Set a currentColor fill or stroke to let the user colorize the icons by using text color css (or with text-green classes for example)
+Also in this case we need to change the svg contents to play nice with the classes we apply to them, See the ``beforeSvgFileCreated`` method.
+- Remove all specified width / height as this should be configurable by the user of the icon
+- For similar reasons remove all specified colors
+- Set the fill or stroke to ``currentColor`` to let the user specify it
 
 These operations can be specified in a single class that extends IconPack:
 

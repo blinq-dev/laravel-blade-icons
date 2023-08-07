@@ -62,7 +62,7 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="blinq-icons:views"
 ```
 
-## Add another icons pack & contribute
+## Add another icon pack & contribute
 
 Would you like to add another icon pack? Let's use Heroicons as an example.
 

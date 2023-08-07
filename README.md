@@ -2,6 +2,24 @@
 
 This package makes it super simple to embed any svg icons in your code. It downloads the svg from the right place automatically from github and caches it locally.
 
+Available at the time or writing:
+- Heroicons
+    - mini
+    - outline
+    - solid
+- Font awesome
+    - brands
+    - regular
+    - solid
+- Material icons
+    - default
+    - outlined
+    - round
+    - sharp
+    - twotone
+ 
+See https://icons.blinq.dev
+
 <img width="1360" alt="icons" src="https://github.com/blinq-dev/laravel-blade-icons/assets/168357/2ad43a5e-1aed-4da7-a3e4-f6e1d7ad9f81">
 
 ## Installation

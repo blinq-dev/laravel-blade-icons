@@ -1,37 +1,30 @@
 # Laravel blade icons
 
-This package makes it super simple to embed any svg icons in your code. It is lightweight because it only downloads the requested icons from the right place automatically and caches it locally.
+Hey there, friend! Are you tired of hunting down the perfect SVG icons for your web project and embedding them in your code? Well, look no further! I've got a package right here that'll make your life a breeze. Say hello to Laravel Blade Icons. 👋
+
+No need to download entire icon sets that will bloat your code. It's smart, so it only grabs the icons you want and caches them locally. Talk about efficiency! 🚀
 
 Available at the time or writing:
-- Heroicons
-    - mini
-    - outline
-    - solid
-- Font awesome
-    - brands
-    - regular
-    - solid
-- Material icons
-    - default
-    - outlined
-    - round
-    - sharp
-    - twotone
+- Heroicons (mini / outline / solid)
+- Font awesome (brands / regular / solid)
+- Material icons (default / outlined / round / sharp / twotone)
  
-See https://icons.blinq.dev
+Go see https://icons.blinq.dev 
 
 <img width="1360" alt="icons" src="https://github.com/blinq-dev/laravel-blade-icons/assets/168357/2ad43a5e-1aed-4da7-a3e4-f6e1d7ad9f81">
 
 ## Installation
 
-You can install the package via composer:
+Simply conjure up the following in your terminal:
 
 ```bash
 composer require blinq/icons
 ```
 
+And voila! You're in the icon club.
+
 ## Usage
-Go to https://icons.blinq.dev and find the icon you want to use.
+Go to https://icons.blinq.dev and find the icon that tickles your fancy.
 
 ```php
 <x-icon pack='hero2/outline' name='banknotes' class='w-6 h-6' />
@@ -41,7 +34,7 @@ Go to https://icons.blinq.dev and find the icon you want to use.
 <x-icon pack='material/twotone' name='account_circle' class='w-6 h-6' />
 ```
 
-That's it! The first time it downloads the icon to your resources folder and after that it loads from there.
+That's it! First time around, it'll download the icon to your resources folder, and from then on, it'll load from there. Pretty slick, eh?
 
 ## Configuration
 

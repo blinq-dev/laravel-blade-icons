@@ -97,14 +97,14 @@ We must then transform this list into a format that ``blinq/icons`` understands.
         ...
 ```
 
-To achieve this, we need to write some code that will transform the GitHub trees response into a discovery.json file. Take a look at the beforeDiscoveryFileCreated method below.
+To achieve this, we need to write some code that will transform the GitHub trees response into a ``discovery.json`` file. Take a look at the ``beforeDiscoveryFileCreated`` method below.
 
-In this case, we also need to make adjustments to the SVG contents so they work well with the classes we apply to them. You can find guidance in the beforeSvgFileCreated method:
+In this case, we also need to make adjustments to the SVG contents so they work well with the classes we apply to them. You can find guidance in the ``beforeSvgFileCreated`` method:
 - Remove all specified width and height, as these should be configurable by the user of the icon.
 - Similarly, remove all specified colors.
 - Set the fill or stroke to currentColor, allowing the user to specify it.
 
-These operations can be consolidated into a single class that extends IconPack:
+These operations can be consolidated into a single class that extends ``IconPack``:
 
 ```php
 <?php

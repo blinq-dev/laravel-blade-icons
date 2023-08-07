@@ -1,6 +1,6 @@
 # Laravel blade icons
 
-This package makes it super simple to embed any svg icons in your code. It downloads the svg from the right place automatically from github and caches it locally.
+This package makes it super simple to embed any svg icons in your code. It is lightweight because it only downloads the requested icons from the right place automatically and caches it locally.
 
 Available at the time or writing:
 - Heroicons

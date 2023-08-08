@@ -1,4 +1,5 @@
 # Laravel blade icons
+One-click icons
 
 This package makes it super simple to embed svg icons in your laravel project. No need to download entire icon sets that will bloat your code. It only grabs the icons you want and caches them locally 🚀
 

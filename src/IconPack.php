@@ -99,7 +99,7 @@ abstract class IconPack
         return $svg;
     }
 
-    public static function svg($pack, $name)
+    public static function svg($pack, $name, $atts = [])
     {
         $rendered = Blade::renderComponent(new Icon($pack, $name, lazy: false));
         
@@ -108,6 +108,9 @@ abstract class IconPack
     
         // Remove all whitespace
         $rendered = preg_replace('/\s+/', ' ', $rendered);
+
+        // Add attributes to svg
+        $rendered = str_replace("<svg", "<svg " . collect($atts)->map(fn($v, $k) => "$k=\"$v\"")->join(' '), $rendered);
 
         return $rendered;
     }

@@ -1,12 +1,8 @@
 <?php
 
-use Blinq\Icons\Components\Icon;
 use Blinq\Icons\IconPack;
 use Blinq\Icons\Utils;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
-use Illuminate\View\Compilers\BladeCompiler;
 
 Route::get('/blinq-icons/js/blinq-icons.js', function () {
     return Utils::pretendResponseIsFile(__DIR__ . "/../resources/js/blinq-icons.js");

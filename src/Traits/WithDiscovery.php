@@ -64,7 +64,7 @@ trait WithDiscovery
         if (!isset($discoveryPath)) {
             return null;
         }
-        $local = config('blinq.icons.download_path', base_path('resources/svg')) . "/$namespace/discovery.json";
+        $local = config('blinq-icons.download_path', base_path('resources/svg')) . "/$namespace/discovery.json";
 
         if (!file_exists($local)) {
             try {

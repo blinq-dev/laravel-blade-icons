@@ -12,7 +12,7 @@ trait WithDownloads
         $namespace = $this->config->namespace;
         $path = $this->config->path;
 
-        $local = config('blinq.icons.download_path', base_path('resources/svg')) . "/$namespace/$localFile";
+        $local = config('blinq-icons.download_path', base_path('resources/svg')) . "/$namespace/$localFile";
 
         
         if (!$remoteFile) {

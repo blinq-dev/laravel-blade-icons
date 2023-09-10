@@ -82,7 +82,7 @@ abstract class PackageServiceProvider extends ServiceProvider
      */
     protected function registerViewComponent(string $component, string $directory, string|null $alias = null, string $prefix = null)
     {
-        $fullName = "blinq.icons";
+        $fullName = "blinq-icons";
         $view = str_replace(".blade.php", "", $component);
         $view = str_replace("/", ".", $view);
 

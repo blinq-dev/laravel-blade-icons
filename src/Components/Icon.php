@@ -10,7 +10,7 @@ class Icon extends Component
      *
      * @return void
      */
-    public function __construct(public $pack, public $name, public $lazy = false)
+    public function __construct(public $id, public $lazy = false)
     {
         
     }

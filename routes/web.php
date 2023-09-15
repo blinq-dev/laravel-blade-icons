@@ -15,10 +15,7 @@ Route::get('/blinq-icons/lazy/{ids}', function () {
         foreach($ids as $id) {
             $id = base64_decode($id);
 
-            $pack = str($id)->before(' ');
-            $name = str($id)->after(' ');
-
-            $renderedItems[] = IconPack::svg($pack, $name);
+            $renderedItems[] = IconPack::svg($id);
         }
         // return json with cache headers
         return response()->json($renderedItems)->header('Cache-Control', 'max-age=31536000, public');

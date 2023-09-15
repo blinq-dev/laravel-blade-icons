@@ -8,8 +8,8 @@ use Blinq\Icons\IconPackConfig;
 /**
  * Heroicons icon pack
  * 
- * <x-icon pack="namespace/variant" name="icon name" />
- * <x-icon pack="hero2/solid" name="banknotes" />
+ * <x-icon id="icon name@namespace/variant" />
+ * <x-icon id="banknotes@hero2/solid" />
  */
 class FluentUI extends IconPack
 {

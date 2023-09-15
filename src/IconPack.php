@@ -99,9 +99,9 @@ abstract class IconPack
         return $svg;
     }
 
-    public static function svg($pack, $name, $atts = [])
+    public static function svg($id, $atts = [])
     {
-        $rendered = Blade::renderComponent(new Icon($pack, $name, lazy: false));
+        $rendered = Blade::renderComponent(new Icon($id, lazy: false));
         
         // Remove all comments
         $rendered = preg_replace('/<!--(.|\s)*?-->/', '', $rendered);

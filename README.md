@@ -24,11 +24,11 @@ composer require blinq/icons
 Go to https://icons.blinq.dev and find the icon you want.
 
 ```php
-<x-icon pack='hero2/outline' name='banknotes' class='w-6 h-6' />
+<x-icon id="banknotes@hero2/outline" class='w-6 h-6' />
 
-<x-icon pack='fa6/regular' name='eye' class='w-6 h-6' />
+<x-icon id="eye@fa6/regular" class='w-6 h-6' />
 
-<x-icon pack='material/twotone' name='account_circle' class='w-6 h-6' />
+<x-icon id="account_circle@material/twotone" class='w-6 h-6' />
 ```
 
 That's it! First time around, it'll download the icon to your resources folder, and from then on, it'll load from there.
@@ -118,8 +118,8 @@ use Blinq\Icons\IconPackConfig;
 /**
  * Heroicons icon pack
  * 
- * <x-icon pack="namespace/variant" name="icon name" />
- * <x-icon pack="hero2/solid" name="banknotes" />
+ * <x-icon id="icon name@namespace/variant" />
+ * <x-icon id="banknotes@hero2/solid" />
  */
 class Heroicons extends IconPack
 {

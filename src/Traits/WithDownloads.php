@@ -22,12 +22,18 @@ trait WithDownloads
         if (!file_exists($local)) {
             // $remoteVariant = $this->variants[$variant];
             $url = "$path/$remoteFile";
+            $svg = null;
 
             try {
                 $url = str_replace(" ", "%20", $url);
                 $svg = file_get_contents($url);
+                // $svg = curl_get_contents($url);
             } catch (\Exception $e) {
 
+            }
+
+            if (!$svg) {
+                return null;
             }
 
             $this->createSvgFile($local, $svg);

@@ -27,6 +27,7 @@ class IconsServiceProvider extends PackageServiceProvider
         $this->registerViews();
         $this->registerRoutes();
         $this->registerCommands();
+        $this->registerHelperDirectory("Helpers", inGlobalScope: true);
         $this->registerBladeComponents();
         // $this->registerViewComponentDirectory("../resources/views/components", config('blinq-icons.prefix', null), "blinq");
     }

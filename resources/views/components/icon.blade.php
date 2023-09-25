@@ -38,10 +38,10 @@
 
         if ($missing) {
             $iconPack = \Blinq\Icons\IconPack::get('fallback');
-            $icon = $iconPack->getIcon('missing', null, $attributes);
             $attributes = $attributes->merge([
                 'title' => $missingMessage,
             ]);
+            $icon = $iconPack->getIcon('missing', null, $attributes);
         }
 
     @endphp
@@ -50,6 +50,6 @@
     {{-- <x-icon (class=['|"][^'|"]*['|"] )?pack=['|"]([^'|"]*)['|"] name=['|"]([^'|"]*)['|"] --}}
     {{-- <x-icon $1id="$3@$2" --}}
 
-    <!-- icon: {{ $pack }} {{ $name }} -->
+    <!-- icon: {{ $id }} -->
     {!! $icon !!}
 @endif
